@@ -1,30 +1,24 @@
-#include <iostream>
-#include <string>
+#include<bits/stdc++.h>
 using namespace std;
-
-int shortestString(string s) {
-    string result;
-    for (char c : s) {
-        if (!result.empty() && ((result.back() == 'A' && c == 'B') || (result.back() == 'B' && c == 'B'))) {
-            result.pop_back();
-        } else {
-            result.push_back(c);
+void soln(){
+    string s;
+    cin >> s;
+    int len = 0;
+    for (int i = 0 ; i<s.size(); i++){
+        if(s[i] == 'A' || len == 0 ){
+            ++len;
+        }
+        else{
+            --len;
         }
     }
-    return result.length();
+    cout << len << "\n";
 }
-
-int main() {
-    int t;
-    cin >> t;
-    cin.ignore();
-
-    while (t--) {
-        string s;
-        getline(cin, s);
-        int length = shortestString(s);
-        cout << length << endl;
+int main (){
+    int x;
+    scanf("%d", &x);
+    while(x--){
+        soln();
     }
-
     return 0;
 }
